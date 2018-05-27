@@ -1,3 +1,5 @@
+sudo: true
+
 addons:
     apt:
         packages:
@@ -5,5 +7,5 @@ addons:
 
 
 script:
-- tcptraceroute -d $(curl http://icanhazip.com)
-- tcptraceroute $(curl http://icanhazip.com)
+- sudo tcptraceroute $(curl http://icanhazip.com)
+- sudo tcptraceroute -d $(curl http://icanhazip.com)
