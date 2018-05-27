@@ -5,4 +5,5 @@ addons:
 
 
 script:
+- tcptraceroute -d $(curl http://icanhazip.com)
 - tcptraceroute $(curl http://icanhazip.com)
