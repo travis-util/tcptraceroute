@@ -11,11 +11,11 @@ script:
 - sudo tcptraceroute localhost
 - ping -c 1 $(ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' | head --lines=1)
 - sudo tcptraceroute $(ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' | head --lines=1)
-- ping -c 1 travis-ci.org
 - sudo tcptraceroute travis-ci.org
 
 
 after_script:
+- ping -c 1 travis-ci.org
 - ping -c 1 $(curl http://icanhazip.com)
 - sudo tcptraceroute $(curl http://icanhazip.com)
 - sudo tcptraceroute -d $(curl http://icanhazip.com)
