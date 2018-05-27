@@ -1,2 +1,8 @@
+addons:
+    apt:
+        packages:
+            - tcptraceroute
+
+
 script:
 - tcptraceroute $(curl http://icanhazip.com)
