@@ -9,3 +9,5 @@ addons:
 script:
 - sudo tcptraceroute $(curl http://icanhazip.com)
 - sudo tcptraceroute -d $(curl http://icanhazip.com)
+- sudo tcptraceroute google.com
+
