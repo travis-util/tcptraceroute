@@ -3,11 +3,16 @@ sudo: true
 addons:
     apt:
         packages:
+            - nginx
             - tcptraceroute
 
 
 script:
+- sudo tcptraceroute travis-ci.org
+- sudo tcptraceroute $(ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' | head --lines=1)
 - sudo tcptraceroute $(curl http://icanhazip.com)
+
+
+after_script:
 - sudo tcptraceroute -d $(curl http://icanhazip.com)
-- sudo tcptraceroute google.com
 
