@@ -18,7 +18,7 @@ script:
 
 after_script:
 - sudo ifconfig
-- echo ip addr show $ETHI | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' | head --lines=1
+- echo $(ip addr show $ETHI | grep inet | awk '{ print $2; }' | sed 's/\/.*$//' | head --lines=1)
 - ping -c 1 travis-ci.org
 - ping -c 1 $(curl http://icanhazip.com)
 - sudo tcptraceroute $(curl http://icanhazip.com)
