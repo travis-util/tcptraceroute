@@ -15,6 +15,7 @@ script:
 
 
 after_script:
+- sudo ifconfig
 - ping -c 1 travis-ci.org
 - ping -c 1 $(curl http://icanhazip.com)
 - sudo tcptraceroute $(curl http://icanhazip.com)
